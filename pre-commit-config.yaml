@@ -1,0 +1,17 @@
+repos:
+  - repo: local
+    hooks:
+      - id: cppcheck
+        name: cppcheck
+        entry: cppcheck --enable=warning --force --error-exitcode=1 --language=c
+        language: system
+        types: [c]
+        files: \.(c|cpp|h|hpp)$
+        args: ['--output-file=cppcheck-results.txt']
+
+      - id: clang-format
+        name: clang-format
+        entry: clang-format -i
+        language: system
+        types: [c]
+        files: \.(c|cpp|h|hpp)$
