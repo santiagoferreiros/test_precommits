@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main() {
-  int a = 8;
-  int b = ++a + a++;
+  int a = 0;
+  int b = ++a;
   printf("Value: %d", a);
   return 0;
 }
