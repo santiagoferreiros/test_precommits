@@ -1,3 +1,0 @@
-# cpplint configuration
-set noparent
-filter=-legal/copyright
