@@ -1,4 +1,4 @@
-name: Compile with Make
+name: Check compilation using make
 
 on:
   pull_request:
