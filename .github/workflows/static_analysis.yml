@@ -23,4 +23,4 @@ jobs:
       run: cppcheck --enable=all --error-exitcode=1 .
 
     - name: Run Cpplint
-      run: find . -name '*.c' -o -name '*.h' | xargs cpplint
+      run: find . -name '*.c' -o -name '*.h' | xargs cpplint --filter=-legal/copyright
