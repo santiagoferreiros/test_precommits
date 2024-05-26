@@ -1,4 +1,4 @@
-name: Check compilation using make
+name: Check compilation
 
 on:
   pull_request:
