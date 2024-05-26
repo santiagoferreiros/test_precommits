@@ -7,7 +7,13 @@ repos:
         language: system
         types: [c]
         files: \.(c|cpp|h|hpp)$
-        args: ['--output-file=cppcheck-results.txt']
+
+      - id: cpplint
+        name: cpplint
+        entry: cpplint
+        language: python
+        types: [c]
+        files: \.(c|cpp|h|hpp)$
 
       - id: clang-format
         name: clang-format
@@ -15,3 +21,10 @@ repos:
         language: system
         types: [c]
         files: \.(c|cpp|h|hpp)$
+
+      - id: git-secrets
+        name: git-secrets
+        entry: git secrets --scan
+        language: system
+        files: .*
+        stages: [commit]  # Esto hace que el hook se ejecute solo en el commit stage

@@ -1,4 +1,4 @@
-name: Pre-commit checks
+name: Format check
 
 on:
   pull_request:
@@ -17,11 +17,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y clang-format cppcheck
-
-    - name: Run cppcheck
-      run: |
-        cppcheck --enable=warning --force --error-exitcode=1 --language=c --output-file=cppcheck-results.txt $(find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp')
-        cat cppcheck-results.txt
 
     - name: Run clang-format
       run: |
