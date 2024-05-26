@@ -7,7 +7,6 @@ repos:
         language: system
         types: [c]
         files: \.(c|cpp|h|hpp)$
-        args: ['--output-file=cppcheck-results.txt']
 
       - id: cpplint
         name: cpplint
@@ -28,5 +27,4 @@ repos:
         entry: git secrets --scan
         language: system
         files: .*
-        exclude: '.github/workflows/check_secrets.yml'
         stages: [commit]  # Esto hace que el hook se ejecute solo en el commit stage
