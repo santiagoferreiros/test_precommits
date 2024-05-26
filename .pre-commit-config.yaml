@@ -25,7 +25,8 @@ repos:
 
       - id: git-secrets
         name: git-secrets
-        entry: git secrets --scan --recursive --exclude='.pre-commit-config.yaml' --exclude='check_secrets.yml'
+        entry: git secrets --scan
         language: system
         files: .*
-        exclude: '(check_secrets.yml|.pre-commit-config.yaml)'
+        exclude: '.github/workflows/check_secrets.yml'
+        stages: [commit]  # Esto hace que el hook se ejecute solo en el commit stage
