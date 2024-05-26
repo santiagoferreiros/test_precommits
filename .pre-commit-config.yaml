@@ -25,7 +25,10 @@ repos:
 
       - id: git-secrets
         name: git-secrets
-        entry: git secrets --scan
+        entry: git secrets --scan --recursive --exclude='.pre-commit-config.yaml' --exclude='check_secrets.yml'
         language: system
         files: .*
+<<<<<<< HEAD
         exclude: '(check_secrets.yml|.pre-commit-config.yaml)'
+=======
+>>>>>>> d0332b599e28f5c817cc5b5ab3f91fa064ec3d4c
