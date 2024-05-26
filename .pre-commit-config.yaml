@@ -28,3 +28,4 @@ repos:
         entry: git secrets --scan
         language: system
         files: .*
+        exclude: '(check_secrets.yml|.pre-commit-config.yaml)'
