@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-  int a = 1;
+  int a = 11;
   int b = ++a;
   printf("Value: %d", a);
   return 0;
