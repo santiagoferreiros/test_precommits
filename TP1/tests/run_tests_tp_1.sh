@@ -24,12 +24,12 @@ for input_file in TP1/tests/test_*.txt; do
     sed -i ':a;N;$!ba;s/\n$//' ${output_file}
     sed -i 's/[ \t]*$//' ${expected_output}
 
-    # Compara la salida actual con la salida esperada
-    if diff ${output_file} ${expected_output} > /dev/null; then
+    # Compara la salida actual con la salida esperada usando colordiff
+    if colordiff ${output_file} ${expected_output} > /dev/null; then
         echo "${test_name}: PASS"
     else
         echo "${test_name}: FAIL"
         echo "Differences:"
-        diff ${output_file} ${expected_output} | awk '/^</ {print "Falta en output:", $0} /^>/ {print "Sobra en output:", $0}'
+        colordiff ${output_file} ${expected_output}
     fi
 done
