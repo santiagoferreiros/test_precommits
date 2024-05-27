@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Compilar el programa principal
-gcc ../src/main.c -o ../tp1
+gcc TP1/src/main.c -o TP1/bin/tp1
 
 # Ejecutar pruebas
 for input_file in test_files/input_test*.txt; do
@@ -10,7 +10,7 @@ for input_file in test_files/input_test*.txt; do
     expected_output="expected_outputs/expected_output_${test_name}.txt"
 
     # Ejecutar el programa con rutas de archivo de entrada y salida
-    ../tp1 ${input_file} ${output_file}
+    TP1/bin/tp1 ${input_file} ${output_file}
 
     # Compara la salida actual con la salida esperada
     if diff ${output_file} ${expected_output} > /dev/null; then

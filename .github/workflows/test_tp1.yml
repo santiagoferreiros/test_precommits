@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'TP1/**'
+  workflow_dispatch:
 
 jobs:
   test:
