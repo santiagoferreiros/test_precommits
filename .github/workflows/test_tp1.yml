@@ -24,7 +24,7 @@ jobs:
     - name: Run test script
       run: |
         chmod +x ./TP1/tests/run_tests_tp_1.sh
-        ./TP1/tests/run_tests.sh
+        ./TP1/tests/run_tests_tp_1.sh
 
     - name: Clean up
       run: rm TP1/tp1 TP1/tests/output_*.txt
