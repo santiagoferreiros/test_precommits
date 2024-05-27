@@ -8,7 +8,7 @@ passed_tests=0
 total_percentage=0
 min_percentage_matching_per_test=80  # Establecer el porcentaje mínimo de coincidencia para pasar el test
 min_average_percentage_over_all_test=75
-min_quantity_test=1
+min_quantity_test=2
 pass_tests=1
 
 # Ejecutar pruebas
@@ -81,15 +81,19 @@ echo -e "\nSe superaron en total ${passed_tests} test de un total de ${total_tes
 echo -e "Porcentaje promedio de cobertura de test: ${average_percentage}%"
 
 if (( $(echo "$passed_tests < $min_quantity_test" | bc) )); then
-        pass_tests=0
-        echo -e "\n\033[31mNo se superó la cantidad mínima de test para revisión de PR. Superar como mínimo ${min_quantity_test} de ${total_tests} \033[0m\n"
+    pass_tests=0
+    echo -e "\n\033[31mNo se superó la cantidad mínima de test para revisión de PR. Superar como mínimo ${min_quantity_test} de ${total_tests} \033[0m\n"
+    exit 1
 fi
 
 if (( $(echo "$average_percentage <= $min_average_percentage_over_all_test" | bc) )); then
-        pass_tests=0
-        echo -e "\n\033[31mNo se alcanzó el mínimo porcentaje promedio de cobertura de test para revisión de PR. Mínimo de porcentaje promedio de cobertura requerido: ${min_average_percentage_over_all_test}%\033[0m\n"
+    pass_tests=0
+    echo -e "\n\033[31mNo se alcanzó el mínimo porcentaje promedio de cobertura de test para revisión de PR. Mínimo de porcentaje promedio de cobertura requerido: ${min_average_percentage_over_all_test}%\033[0m\n"
+    exit 1
 fi
 
 if [ "$pass_tests" -ne 0 ]; then
-        echo -e "\n\033[32mSe superaron los requerimientos de los test, puede continuarse con revisión de PR\033[0m\n"
+    echo -e "\n\033[32mSe superaron los requerimientos de los test, puede continuarse con revisión de PR\033[0m\n"
+    exit 0
+
 fi
