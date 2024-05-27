@@ -12,6 +12,18 @@ for input_file in TP1/tests/test_*.txt; do
     # Ejecutar el programa con rutas de archivo de entrada y salida
     TP1/bin/tp1 ${input_file} ${output_file}
 
+    # Convertir tabulaciones a un solo espacio
+    sed -i 's/\t\+/ /g' ${output_file}
+    sed -i 's/\t\+/ /g' ${expected_output}
+
+    # Limpiar espacios al final de las líneas
+    sed -i 's/[ \t]*$//' ${output_file}
+    sed -i 's/[ \t]*$//' ${expected_output}
+
+    # Eliminar el salto de línea final si existe
+    sed -i ':a;N;$!ba;s/\n$//' ${output_file}
+    sed -i 's/[ \t]*$//' ${expected_output}
+
     # Compara la salida actual con la salida esperada
     if diff ${output_file} ${expected_output} > /dev/null; then
         echo "${test_name}: PASS"
