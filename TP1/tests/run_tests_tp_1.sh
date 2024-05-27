@@ -24,12 +24,15 @@ for input_file in TP1/tests/test_*.txt; do
     sed -i ':a;N;$!ba;s/\n$//' ${output_file}
     sed -i 's/[ \t]*$//' ${expected_output}
 
+    echo -e "Comparando salida del test: ${test_name}\n"
+
     # Compara la salida actual con la salida esperada usando colordiff en formato de dos columnas
     if colordiff -y ${output_file} ${expected_output} > /dev/null; then
         echo "${test_name}: PASS"
     else
         echo "${test_name}: FAIL"
-        echo "Differences:"
+        echo -e "Diferencias en colores: \n Líneas verdes: - adicionales\n Líneas Rojas - faltantes \n Líneas celeste: Modificadas"
+        echo -e "Salida de ejecución actual\t\t\t\tSalida esperada"
         colordiff -y ${output_file} ${expected_output}
     fi
 done
