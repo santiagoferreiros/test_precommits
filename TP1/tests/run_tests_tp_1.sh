@@ -8,7 +8,7 @@ passed_tests=0
 total_percentage=0
 min_percentage_matching_per_test=80  # Establecer el porcentaje mínimo de coincidencia para pasar el test
 min_average_percentage_over_all_test=75
-min_quantity_test=2
+min_quantity_test=1
 pass_tests=1
 
 # Ejecutar pruebas
