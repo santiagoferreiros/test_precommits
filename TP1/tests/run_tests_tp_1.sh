@@ -29,8 +29,8 @@ for input_file in TP1/tests/test_*.txt; do
         echo "Resultado ${test_name}: PASS"
     else
         echo -e "Resultado ${test_name}: FAIL \n"
-        echo -e "Diferencias indicadas en colores. Referencias de colores: \n\n  *Verde: Líneas faltantes en salida actual \n  *Rojo: Líneas adicionales en salida actual \n  *Celeste: Líneas con diferencias\n"
-        echo -e "Salida de ejecución actual\t\t\t\t\tSalida esperada"
+        echo -e "\n Diferencias indicadas en colores. Referencias de colores: \n\n  *Verde: Líneas faltantes en salida actual \n  *Rojo: Líneas adicionales en salida actual \n  *Celeste: Líneas con diferencias\n"
+        echo -e "\nSalida de ejecución actual ${test_name} \t\t\t\t\tSalida esperada ${test_name}\n"
         colordiff -y ${output_file} ${expected_output}
     fi
 done
