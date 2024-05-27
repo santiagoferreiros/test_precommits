@@ -30,6 +30,6 @@ for input_file in TP1/tests/test_*.txt; do
     else
         echo "${test_name}: FAIL"
         echo "Differences:"
-        diff -y ${output_file} ${expected_output}
+        diff -u ${output_file} ${expected_output}
     fi
 done
