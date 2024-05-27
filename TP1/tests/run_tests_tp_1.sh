@@ -6,7 +6,7 @@ gcc TP1/src/main.c -o TP1/bin/tp1
 # Ejecutar pruebas
 for input_file in TP1/tests/test_*.txt; do
     test_name=$(basename ${input_file} .txt)
-    output_file="output_${test_name}.txt"
+    output_file="TP1/tests/output_${test_name}.txt"
     expected_output="TP1/tests/expected_outputs/expected_output_${test_name}.txt"
 
     # Ejecutar el programa con rutas de archivo de entrada y salida
@@ -24,12 +24,12 @@ for input_file in TP1/tests/test_*.txt; do
     sed -i ':a;N;$!ba;s/\n$//' ${output_file}
     sed -i 's/[ \t]*$//' ${expected_output}
 
-    # Compara la salida actual con la salida esperada usando colordiff
-    if colordiff ${output_file} ${expected_output} > /dev/null; then
+    # Compara la salida actual con la salida esperada usando colordiff en formato de dos columnas
+    if colordiff -y ${output_file} ${expected_output} > /dev/null; then
         echo "${test_name}: PASS"
     else
         echo "${test_name}: FAIL"
         echo "Differences:"
-        colordiff ${output_file} ${expected_output}
+        colordiff -y ${output_file} ${expected_output}
     fi
 done

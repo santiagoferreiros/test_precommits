@@ -31,4 +31,4 @@ jobs:
         ./TP1/tests/run_tests_tp_1.sh
 
     - name: Clean up
-      run: rm TP1/tp1 TP1/tests/output_*.txt
+      run: rm TP1/bin/tp1 TP1/tests/output_test_*.txt
