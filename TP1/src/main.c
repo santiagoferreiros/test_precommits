@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
   if (argc == 3) {
     FILE *salida = fopen(argv[2], "w");
     if (salida == NULL) {
-      printf("Error al intentarrr crear el archivo %s.\n", argv[2]);
+      printf("Error al intentarrrr crear el archivo %s.\n", argv[2]);
       return EXIT_FAILURE;
     }
     lexer(file, salida); // escribre archivo
