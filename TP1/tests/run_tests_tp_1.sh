@@ -26,10 +26,10 @@ for input_file in TP1/tests/test_*.txt; do
 
     # Compara la salida actual con la salida esperada usando colordiff en formato de dos columnas
     if colordiff -y ${output_file} ${expected_output} > /dev/null; then
-        echo "Resultado ${test_name}: PASS"
+        echo "\nResultado ${test_name}: PASS"
     else
-        echo -e "Resultado ${test_name}: FAIL"
-        echo -e "\nDiferencias indicadas en colores. Referencia de colores: \n\n\033[32m  * Verde: Líneas faltantes en salida actual \033[0m\n\033[31m  * Rojo: Líneas adicionales en salida actual \033[0m\n\033[34m  * Celeste: Líneas con diferencias entre salida actual y esperada\033[0m"
+        echo -e "\nResultado ${test_name}: FAIL"
+        echo -e "\nDiferencias indicadas en colores. Referencia de colores: \n\n\033[32m  * Verde: Líneas faltantes en salida actual \033[0m\n\033[31m  * Rojo: Líneas adicionales en salida actual \033[0m\n\033[36m  * Cian: Líneas con diferencias entre salida actual y esperada\033[0m"
         echo -e "\nSalida de ejecución actual ${test_name} \t\t\t\tSalida esperada ${test_name}\n"
         colordiff -y ${output_file} ${expected_output}
     fi
