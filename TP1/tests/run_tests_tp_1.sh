@@ -30,6 +30,6 @@ for input_file in TP1/tests/test_*.txt; do
     else
         echo "${test_name}: FAIL"
         echo "Differences:"
-        diff -u ${output_file} ${expected_output}
+        diff ${output_file} ${expected_output} | awk '/^</ {print "Falta en output:", $0} /^>/ {print "Sobra en output:", $0}'
     fi
 done
