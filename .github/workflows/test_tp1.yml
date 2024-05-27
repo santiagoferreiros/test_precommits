@@ -1,0 +1,27 @@
+name: Test TP 1
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'TP1/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y gcc
+
+    - name: Run test script
+      run: |
+        chmod +x TP1/tests/run_tests_tp_1.sh
+        TP1/tests/run_tests.sh
+
+    - name: Clean up
+      run: rm TP1/tp1 TP1/tests/output_*.txt
