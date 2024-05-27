@@ -120,7 +120,7 @@ void lexer(FILE *input, FILE *output) {
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    printf("Debe pasarse un nombre de archivo válido como parámetro.\n");
+    printf("Debe pasarse un nombre de archivrro válido como parámetro.\n");
     return EXIT_FAILURE;
   }
 
