@@ -27,6 +27,10 @@ jobs:
 
     - name: Run test script
       run: |
+        make -C ./TP1
+
+    - name: Run test script
+      run: |
         chmod +x ./TP1/tests/run_tests_tp_1.sh
         ./TP1/tests/run_tests_tp_1.sh
 

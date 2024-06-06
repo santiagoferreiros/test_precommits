@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Compilar el programa principal
-gcc TP1/src/main.c -o TP1/bin/tp1
+#gcc TP1/src/main.c -o TP1/bin/tp1
 
 total_tests=0
 passed_tests=0
@@ -47,11 +47,6 @@ for input_file in TP1/tests/test_*.txt; do
     else
         percentage_matching=0
     fi
-
-    #echo "total: ${output_line_count}"
-    #echo "total: ${expected_line_count}"
-    #echo "matching lines: ${matching_lines}"
-    #echo "percentage lines: ${percentage_matching}"
 
     # Sumarizar para promedio
     total_percentage=$(echo "$total_percentage + $percentage_matching" | bc)
