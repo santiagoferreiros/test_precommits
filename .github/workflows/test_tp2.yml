@@ -25,6 +25,7 @@ jobs:
         sudo apt-get install -y gcc
         sudo apt-get install -y colordiff
         sudo apt-get install -y flex bison
+        sudo apt-get install libfl-dev libbison-dev
 
     - name: Compile code with make
       run: |
