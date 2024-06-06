@@ -47,8 +47,8 @@ digito [0-9]
     /* 2. NO pueden hacerse comentarios sin sangría, ya que estos no se copian literalmente al archivo de salida del analizador léxico (scanner) generado (*.lex.yy.c) */
 %%
 
-{digito}+ { 
-		printf("%s:%d:%d: Reconocido: numero: %s \n", archivo_yyin, linea_actual, columna_actual, yytext); 
+{digito}+ {
+		printf("%s:%d:%d: Reconocido: numero: %s \n", archivo_yyin, linea_actual, columna_actual, yytext);
 		columna_actual += yyleng;
 		yylval = (int) strtoul(yytext, NULL, 0);
 		return NUMBER;
@@ -93,7 +93,7 @@ digito [0-9]
             /* (yyterminate(); hace que la función yylex finalice retornando un 0, indicando un fin-de-entrada (EOF)) */
 
 %%
-/* Fin de la sección de reglas */ 
+/* Fin de la sección de reglas */
 
 /* Inicio de la sección de código de usuario, la cual: */
 	/* 1. Se utiliza para rutinas de complemento que llaman al analizador léxico o son llamadas por este; la presencia de esta sección es opcional */

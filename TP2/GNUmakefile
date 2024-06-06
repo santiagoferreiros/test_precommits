@@ -69,7 +69,7 @@ LDLIBS=-lm
 # Entre las opciones para enlazar, se encuentran:
 #	-lNombreBiblioteca (son pasadas directamente al enlazador y sirven para buscar y procesar la biblioteca con NombreBiblioteca al enlazar). Por ejemplo, -lm para que se busque y procese la biblioteca libm.a (ó libm.so) la cual contiene implementaciones de funciones que se necesitan definir para math.h, complex.h y fenv.h: por ejemplo, sin, cos, tan, log, log10, modf, pow, sqrt, fabs, ceil, floor, fmod, etc.
 #		Existen dos tipos de bibliotecas:
-#			(1) Estáticas (static): son archivos típicamente como "libNombreBiblioteca.a" que a su vez contienen archivos objeto (archivos *.o) 
+#			(1) Estáticas (static): son archivos típicamente como "libNombreBiblioteca.a" que a su vez contienen archivos objeto (archivos *.o)
 #			(2) Compartidas/Dinámicas (shared/dynamic): son archivos típicamente con la forma "libNombreBiblioteca.so"
 #		El enlazador busca en una lista estándar de directorios por la biblioteca con NombreBiblioteca. Los directorios en los que se busca incluye a varios directorios estándar del sistema sumado por cualquiera que se especifique con la opción -L
 #		No todos los objetivos (targets) -así es como se denomina a los sistemas sobre los que se compila- soportan bibliotecas dinámicas, pero en aquellos en que sí: en el caso de que se encuentre tanto una biblioteca estática como una dinámica, el enlazador da preferencia a enlazar con la biblioteca dinámica a menos que se utilice la opción -static
@@ -367,7 +367,7 @@ define sh_comprobar_existencia_y_mostrar_ruta_y_version_comando
 	printf "** Version instalada de $(1): %s **\n" "$$($($(1)) $(2) | sed -n 1p 2>/dev/null)"
 endef
 
-# Define una secuencia de comandos enlatada que elimina un archivo, dados su descripción y su nombre 
+# Define una secuencia de comandos enlatada que elimina un archivo, dados su descripción y su nombre
 define sh_eliminar_archivo
 	if [ -f "$(2)" ]; then \
 		printf "\n<<< Eliminando $(1): \"%s\" >>>\n" "$(2)" ; \
