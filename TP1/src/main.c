@@ -120,7 +120,7 @@ void lexer(FILE *input, FILE *output) {
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    printf("Debe pasarse un nombre de archivo válido como parámetro.\n");
+    printf("Debe pasarse un nombre de archivrro válido como parámetro.\n");
     return EXIT_FAILURE;
   }
 
@@ -132,7 +132,7 @@ int main(int argc, char *argv[]) {
   if (argc == 3) {
     FILE *salida = fopen(argv[2], "w");
     if (salida == NULL) {
-      printf("Error al intentar crear el archivo %s.\n", argv[2]);
+      printf("Error al intentarrrrr crear el archivo %s.\n", argv[2]);
       return EXIT_FAILURE;
     }
     lexer(file, salida); // escribre archivo
