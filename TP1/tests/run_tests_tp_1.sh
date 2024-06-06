@@ -22,19 +22,19 @@ for input_file in TP1/tests/test_*.txt; do
     TP1/bin/tp1 ${input_file} ${output_file}
 
     # Normalizar ambos archivos (limpieza de espacios, tabulaciones, etc)
-    sed -e 's/\t/ /g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/[[:space:]]\{2,\}/ /g' -e '/^$/d' "$output_file" > "${test_name}_clean.txt"
-    sed -e 's/\t/ /g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/[[:space:]]\{2,\}/ /g' -e '/^$/d' "$expected_output" > "${test_name}_expected_clean.txt"
+    sed -e 's/\t/ /g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/[[:space:]]\{2,\}/ /g' -e '/^$/d' "$output_file" > "TP1/tests/output_${test_name}_clean.txt"
+    sed -e 's/\t/ /g' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/[[:space:]]\{2,\}/ /g' -e '/^$/d' "$expected_output" > "TP1/tests/expected_outputs/expected_output_${test_name}_clean.txt"
 
     # Contar líneas en los archivos limpios
-    output_line_count=$(wc -l < "${test_name}_clean.txt")
-    expected_line_count=$(wc -l < "${test_name}_expected_clean.txt")
+    output_line_count=$(wc -l < "TP1/tests/output_${test_name}_clean.txt")
+    expected_line_count=$(wc -l < "TP1/tests/expected_outputs/expected_output_${test_name}_clean.txt")
 
-    [ -n "$(tail -c 1 ${test_name}_clean.txt)" ] && echo "" >> ${test_name}_clean.txt
-    [ -n "$(tail -c 1 ${test_name}_expected_clean.txt)" ] && echo "" >> ${test_name}_expected_clean.txt
+    [ -n "$(tail -c 1 TP1/tests/output_${test_name}_clean.txt)" ] && echo "" >> TP1/tests/output_${test_name}_clean.txt
+    [ -n "$(tail -c 1 TP1/tests/expected_outputs/expected_output_${test_name}_clean.txt)" ] && echo "" >> TP1/tests/expected_outputs/expected_output_${test_name}_clean.txt
 
 
     # Usar diff para encontrar diferencias ignorando líneas vacías y normalizadas
-    diff_output=$(diff "${test_name}_clean.txt" "${test_name}_expected_clean.txt" | grep -vE '^[0-9]+[acd][0-9]+$|^---$')
+    diff_output=$(diff "TP1/tests/output_${test_name}_clean.txt" "TP1/tests/expected_outputs/expected_output_${test_name}_clean.txt" | grep -vE '^[0-9]+[acd][0-9]+$|^---$')
 
     # Contar las líneas coincidentes del output de la ejecución respecto del esperado
     matching_lines=$((expected_line_count - $(echo "$diff_output" | grep -c '^>')))
